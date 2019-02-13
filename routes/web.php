@@ -10,16 +10,24 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+$this->middleware('auth')->group( function() {
 
-Route::get('/', function () {
-    return view('welcome');
+    $this->namespace('Site')->group( function() {
+        $this->get('/','SiteController@index' )->name('home');
+    });
+
+    $this->namespace('Admin')->prefix('admin')->name('admin.')->prefix('admin')->group( function() {
+        $this->get('/','AdminController@index')->name('home');
+        $this->get('balance','BalanceController@index')->name('balance');
+        $this->get('deposit','BalanceController@deposit')->name('balance.deposit');
+    });
+
+
+
+
 });
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+

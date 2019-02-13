@@ -17,7 +17,7 @@ return [
 
     'title_prefix' => '',
 
-    'title_postfix' => 'teste',
+    'title_postfix' => '',
 
     /*
     |--------------------------------------------------------------------------
@@ -113,13 +113,29 @@ return [
             'text' => 'Blog',
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
+            //nao esta exibindo porque esta usando o can verfica se a pessoaa logada nao tem permissao de olhar o perfil dele
         ],
         [
             'text'        => 'Home',
             'url'         => 'admin',
             'icon'        => 'home',
             'label'       => 4,
-            'label_color' => 'success',
+            'label_color' => 'danger',
+        ],
+        [
+            'text'=>"Financeiro",
+            'icon'=>'money',
+            'submenu'=>[
+
+                     ['text'=>'saldo',
+                     'url'=>'admin/balance',
+                     'icon'=>'credit-card-alt'
+                    ],
+                    ['text'=>'historico',
+                    'url'=>'historico',
+                    'icon'=>'history'
+                    ]
+            ]
         ],
         'ACCOUNT SETTINGS',
         [
