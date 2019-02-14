@@ -11,18 +11,24 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(\App\User::class,1)->create();
+        //factory(\App\User::class,1)->create();
         //inserir usuario automaticamente
 
 
 
 
-        //App\User::create([
-            //'name' =>'Carlos',
-            //'email'=>'carlos@hotmail.com',
-            //'password'=>bcrypt('123456'),
+        App\User::create([
+        'name' =>'Carlos',
+        'email'=>'carlos@hotmail.com',
+            'password'=>bcrypt('123456'),
 
-       // ]);
+            ]);
+
+        App\User::create([
+            'name' =>'Pedro',
+            'email'=>'pedro@hotmail.com',
+                'password'=>bcrypt('123456'),
+                ]);
         //criando usuario manualmente
     }
 }

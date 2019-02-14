@@ -20,6 +20,8 @@ $this->middleware('auth')->group( function() {
         $this->get('/','AdminController@index')->name('home');
         $this->get('balance','BalanceController@index')->name('balance');
         $this->get('deposit','BalanceController@deposit')->name('balance.deposit');
+
+        $this->post('deposit','BalanceController@depositStore')->name('balance.deposit.store');
     });
 
 
